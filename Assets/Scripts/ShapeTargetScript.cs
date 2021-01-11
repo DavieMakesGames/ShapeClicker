@@ -38,9 +38,9 @@ public class ShapeTargetScript : MonoBehaviour
         float x = _rect.anchoredPosition.x;
         float y = _rect.anchoredPosition.y;
 
-        if (x >= 1890) 
+        if (x >= Screen.width) 
         {
-            _rect.anchoredPosition = new Vector2(-1080, y);
+            _rect.anchoredPosition = new Vector2(x - 3780, y);
             ChangeImage();
         } 
         else _rect.anchoredPosition = new Vector2(x + (Speed * Time.deltaTime), y);
