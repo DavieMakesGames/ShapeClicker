@@ -15,8 +15,4 @@ public class ScoreKeeper : MonoBehaviour
     {
         _score = 0;
     }
-    public void Update()
-    {
-        Debug.Log(_score + "");
-    }
 }
