@@ -9,6 +9,6 @@ public class ImageHitTestIgnoreZeroAlpha : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Button.alphaHitTestMinimumThreshold = 0.1f;
+        Button.alphaHitTestMinimumThreshold = 0.5f;
     }
 }

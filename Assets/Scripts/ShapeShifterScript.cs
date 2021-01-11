@@ -11,6 +11,9 @@ public class ShapeShifterScript : MonoBehaviour
     public const float DOUBLE_CLICK_TIME = .3f;
     public Image Image;
     public TMP_Dropdown Dropdown;
+    public Animator Animator;
+    public AudioSource AudioSource;
+    public List<AudioClip> AudioClips;
 
     void Start()
     {
@@ -21,16 +24,24 @@ public class ShapeShifterScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ShapeClick()
     {
         float clickDelta = Time.time - _lastClickTime;
-        if (clickDelta <= DOUBLE_CLICK_TIME) ChangeColor();
+        bool doubleClick = clickDelta <= DOUBLE_CLICK_TIME;
+
+        if (doubleClick) 
+        {
+            ChangeColor();
+            Animator.SetTrigger("DoubleClick");
+            AudioSource.volume = 1;
+            AudioSource.PlayOneShot(AudioClips[Random.Range(0, AudioClips.Count)]);
+        }
+        else
+        {
+            AudioSource.volume = .35f;
+            AudioSource.PlayOneShot(AudioClips[Random.Range(0, AudioClips.Count)]);
+        }
+
         _lastClickTime = Time.time;
     }
 
