@@ -33,12 +33,12 @@ public class ShapeShifterScript : MonoBehaviour
         {
             ChangeColor();
             Animator.SetTrigger("DoubleClick");
-            AudioSource.volume = 1;
+            AudioSource.volume = .5f;
             AudioSource.PlayOneShot(AudioClips[Random.Range(0, AudioClips.Count)]);
         }
         else
         {
-            AudioSource.volume = .35f;
+            AudioSource.volume = .25f;
             AudioSource.PlayOneShot(AudioClips[Random.Range(0, AudioClips.Count)]);
         }
 
